@@ -28,3 +28,6 @@ Some advantages of using Codespaces:
    2. `which python` - check the path to the Python executable
 
 ### 1.2.2 VM in AWS
+Skipped for now. Potentially revisit later.
+
+## 1.3 Training a ride duration prediction model
