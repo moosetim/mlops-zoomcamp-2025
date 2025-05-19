@@ -1,6 +1,6 @@
 # MLOps Zoomcamp 2025
 
-# 1. Introduction
+# Week 1. Introduction
 ## 1.1 Introduction
 **MLOps** - set of best practices of and tools for putting machine learning models to production.
 
@@ -69,3 +69,49 @@ Reference article can be accessed [here](https://learn.microsoft.com/en-us/azure
 - **Level 2: Automated training.** Training pipeline is automated. Experiment tracking. You know which models are in production (model registry). Model deployment is low friction (might or might not be automated). DS work with engineers.
 - **Level 3: Automated deployment.** Easy to deploy models. Usually, there is a place where you store ML models (ML Platform). You make an API call to the ML Platform and it deploys the model for you. Often, at this stage you can also run A/B tests on the versions of the model (e.g., comparing v1 and v2 of the model). Models are monitored. 
 - **Level 4: Full MLOps automation.** Automatic training, retraining, deployment altogether in one place.
+
+# Week 2. Experiment tracking
+## 2.1 Experiment tracking introduction
+Terminology:
+- **ML experiment** - The whole process of building an ML model (selecting the right model, trying out different hyperparameters). Offline ML experiment, not an A/B test.
+- **Experiment run** - Each run in an ML experiment (recall, that ML experiment is the whole process).
+- **Run aftifact** - Any file associated with an ML run.
+- **Experiment metadata** - All the information about the ML experiment.
+
+**Experiment tracking** - The processing of keeping track of the **relevant information** about an ML experiment. For example:
+- Source code
+- Environment
+- Data
+- Model
+- Hyperparameters
+- Metrics
+- ... (depending on what can be considered **relevant** for an experiment)
+
+### MLflow
+**MLflow** - open-source platform for the management of the Machine Learning lifecycle. It is essentially a Python package that containes 4 main modules:
+- **Tracking**
+- **Models**
+- **Model Registry**
+- **Projects**
+
+**MLflow Tracking module** allows you to organise your ML experiment into runs and keep track of the below information. You specify thhis information explicitly and manually:
+- **Parameters** - (hyperparameters; any parameter that might be relevant for the experiment run - e.g., path to the data, a certain preprocessing method can be considered a parameter)
+- **Metrics** - Any evaluation metric that you want to track (e.g., accuracy, F1 score, etc.)
+- **Artifacts** - Any file related to the run (e.g., a certain visualisation of the data)
+- **Metadata** - Any information about the run (e.g., tags)
+- **Models**
+
+It also automatically logs extra information about the run:
+- **Source code** - Name of the file used to run the experiment
+- **Version of the code (git commit)**
+- **Start and end time of the run**
+- **Author**
+
+## 2.2 Getting started with MLflow
+
+MLflow commands:
+- `mlflow ui` - Start the MLflow UI
+- `mlflow ui --backend-store-uri sqlite:///mlflow.db` - Start the MLflow UI and specify the location of the SQLite database. We will store all the artifacts and metadata in a SQLite database (acts as a backend store).
+- In the folder in which you are working and were you have run the command above, create a folder called `models`. Models will be saved in this folder, otherwise you will get an error.
+
+Stopped at 3:32 of 2.2 Getting started with MLflow video.
