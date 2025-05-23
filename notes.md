@@ -114,4 +114,12 @@ MLflow commands:
 - `mlflow ui --backend-store-uri sqlite:///mlflow.db` - Start the MLflow UI and specify the location of the SQLite database. We will store all the artifacts and metadata in a SQLite database (acts as a backend store).
 - In the folder in which you are working and were you have run the command above, create a folder called `models`. Models will be saved in this folder, otherwise you will get an error.
 
-Stopped at 3:32 of 2.2 Getting started with MLflow video.
+## 2.3 Experiment tracking with MLflow
+Add hyperparameter tunning. 
+
+In MLflow, after you have run the experiment, provided you included the model tag, you can filter all runs by the model tag: 
+- `tags.model = 'xgboost'`
+
+## 2.4 Model management
+Stopped here.
+
